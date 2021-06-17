@@ -1,5 +1,7 @@
 package ohm.softa.a12.icndb;
 
+import ohm.softa.a12.icndb.suppliers.AllJokesSupplier;
+import ohm.softa.a12.icndb.suppliers.RandomJokeSupplier;
 import ohm.softa.a12.model.JokeDto;
 import ohm.softa.a12.model.ResponseWrapper;
 import org.apache.commons.lang3.NotImplementedException;
@@ -18,8 +20,7 @@ public final class JokeGenerator {
      * @return stream of random jokes wrapped in ResponseWrapper objects
      */
     public Stream<ResponseWrapper<JokeDto>> randomJokesStream() {
-        /* TODO create new Stream of random jokes */
-        throw new NotImplementedException("Method `randomJokeStream()` is not implemented");
+		return Stream.generate(new RandomJokeSupplier());
     }
 
     /**
@@ -27,7 +28,6 @@ public final class JokeGenerator {
      * @return stream of jokes wrapped in ResponseWrapper objects
      */
     public Stream<ResponseWrapper<JokeDto>> jokesStream() {
-        /* TODO create a new Stream of all jokes */
-        throw new NotImplementedException("Method `jokesStream()` is not implemented");
+		return Stream.generate(new AllJokesSupplier());
     }
 }

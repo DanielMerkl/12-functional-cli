@@ -1,5 +1,6 @@
 package ohm.softa.a12.icndb;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -12,14 +13,17 @@ class JokesGeneratorTests {
 
     @Test
     void testRandomStream() {
-        /* timeout to ensure that stream does not loop forever */
-        /* TODO implement a test for the random joke stream */
+		jokeGenerator.randomJokesStream()
+			.limit(5)
+			.forEach(Assertions::assertNotNull);
     }
 
 
     @Test
     void testJokesStream() {
-        /* TODO implement a test for the linear jokes generator */
+		jokeGenerator.jokesStream()
+			.limit(5)
+			.forEach(Assertions::assertNotNull);
     }
 
 }
